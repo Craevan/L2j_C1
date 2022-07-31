@@ -20,7 +20,7 @@ public class NewCrypt {
         long checkSum = 0L;
         final int count = raw.length - 8;
         int i;
-        for (i = 0; i < count ; i++) {
+        for (i = 0; i < count; i++) {
             ecx = raw[i] & 0xFF;
             ecx |= (raw[i + 1] << 8) & 0xFF00;
             ecx |= (raw[i + 2] << 16) & 0xFF0000;
@@ -36,23 +36,19 @@ public class NewCrypt {
         return (ecx |= (raw[i + 3] << 24) & 0xFF000000) == checkSum;
     }
 
-    public byte[] decrypt(final byte[] raw) throws IOException
-    {
+    public byte[] decrypt(final byte[] raw) throws IOException {
         final byte[] result = new byte[raw.length];
         final int count = raw.length / 8;
-        for (int i = 0; i < count; ++i)
-        {
+        for (int i = 0; i < count; ++i) {
             this.decrypt.processBlock(raw, i * 8, result, i * 8);
         }
         return result;
     }
 
-    public byte[] crypt(final byte[] raw) throws IOException
-    {
+    public byte[] crypt(final byte[] raw) throws IOException {
         final int count = raw.length / 8;
         final byte[] result = new byte[raw.length];
-        for (int i = 0; i < count; ++i)
-        {
+        for (int i = 0; i < count; ++i) {
             this.crypt.processBlock(raw, i * 8, result, i * 8);
         }
         return result;

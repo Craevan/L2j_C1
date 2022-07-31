@@ -38,15 +38,15 @@ public class ServerList extends ServerBasePacket {
             }
             writeD(server.port);
             writeC(15);
-            if (server.pvp) {
+            if (server.isPvp) {
                 writeC(1);
             } else {
                 writeC(0);
             }
-            writeH(server.currentPlayers);
+            writeH(server.playersCount);
             writeH(server.maxPlayers);
             writeC(1);
-            if (server.testServer) {
+            if (server.isTestServer) {
                 writeD(4);
                 continue;
             }
@@ -54,6 +54,7 @@ public class ServerList extends ServerBasePacket {
         }
     }
 
-    private record ServerData(String ip, int port, boolean pvp, int currentPlayers, int maxPlayers, boolean testServer) {
+    private record ServerData(String ip, int port, boolean isPvp, int playersCount, int maxPlayers,
+                              boolean isTestServer) {
     }
 }

@@ -39,20 +39,15 @@ public class ClientBasePacket {
         return Double.longBitsToDouble(result |= (decrypt[off++] << 56) & 0xFF00000000000000L);
     }
 
-    public String readS()
-    {
+    public String readS() {
         String result = null;
-        try
-        {
+        try {
             result = new String(decrypt, off, decrypt.length - off, StandardCharsets.UTF_16LE);
             result = result.substring(0, result.indexOf(0));
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        if (result != null)
-        {
+        if (result != null) {
             off = (result.length() * 2) + 3;
         }
         return result;

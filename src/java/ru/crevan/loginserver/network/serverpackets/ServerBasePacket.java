@@ -23,8 +23,7 @@ public abstract class ServerBasePacket {
 
     public abstract void writeImpl();
 
-    protected void writeC(final int value)
-    {
+    protected void writeC(final int value) {
         baos.write(value & 0xFF);
     }
 

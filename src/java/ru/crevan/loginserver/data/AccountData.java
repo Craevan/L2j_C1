@@ -7,6 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class AccountData {
 
     private static final Map<String, Integer> accessLevels = new ConcurrentHashMap<>();
+
     //stub
     public AccountData(final boolean autoCreateAccounts) {
     }
