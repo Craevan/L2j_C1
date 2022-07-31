@@ -1,7 +1,7 @@
 package java.ru.crevan.loginserver;
 
 import java.net.Socket;
-import java.ru.crevan.loginserver.network.Connection;
+import java.ru.crevan.gameserver.network.Connection;
 import java.util.HashMap;
 import java.util.Map;
 
