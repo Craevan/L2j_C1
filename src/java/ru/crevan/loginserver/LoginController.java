@@ -68,7 +68,7 @@ public class LoginController {
         return accountsInGameServer.size();
     }
 
-    public int getMaxAllowedPlayers() {
+    public int getMaxAllowedOnlinePlayers() {
         return maxAllowedPlayers;
     }
 
